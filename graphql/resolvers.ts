@@ -1,8 +1,6 @@
-import { links } from "../data/links"
-
 export const resolvers = {
     Query: {
-        links: () => [...links]
+        links: async (_parent, _args, context) => await context.prisma.link.findMany()
     },
 
 }
